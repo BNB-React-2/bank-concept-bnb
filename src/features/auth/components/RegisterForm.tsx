@@ -1,35 +1,37 @@
+'use client';
+
 import { Button } from '@/components/elements/Button';
 import { FormItem, inputStyles } from '@/components/forms/FormItem';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { loginFormSchema, LoginFormType } from '../types';
-import { DEFAULT_LOGIN_FORM_VALUES } from '../values';
+import { registerFormSchema, RegisterFormType } from '../types';
+import { DEFAULT_REGISTER_FORM_VALUES } from '../values';
 
-export type LoginFormProps = {
-  initialValues?: LoginFormType;
-  onSubmit?: (values: LoginFormType, reset?: () => void) => void;
+export type RegisterFormProps = {
+  initialValues?: RegisterFormType;
+  onSubmit?: (values: RegisterFormType, reset?: () => void) => void;
 };
 
-export function LoginForm({ initialValues, onSubmit }: LoginFormProps) {
+export function RegisterForm({ initialValues, onSubmit }: RegisterFormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<LoginFormType>({
-    resolver: zodResolver(loginFormSchema),
-    defaultValues: initialValues || DEFAULT_LOGIN_FORM_VALUES,
+  } = useForm<RegisterFormType>({
+    resolver: zodResolver(registerFormSchema),
+    defaultValues: initialValues || DEFAULT_REGISTER_FORM_VALUES,
   });
-
   return (
     <form
       onSubmit={handleSubmit((values) => onSubmit && onSubmit(values, reset))}
-      className="pt-5 flex flex-col justify-between"
     >
-      <FormItem label="Email" error={errors.email}>
-        <input type="email" className={inputStyles} {...register('email')} />
+      <FormItem label="Nome" error={errors.name}>
+        <input type="text" className={inputStyles} {...register('name')} />
       </FormItem>
-
+      <FormItem label="Email" error={errors.email}>
+        <input type="text" className={inputStyles} {...register('email')} />
+      </FormItem>
       <FormItem label="Senha" error={errors.password}>
         <input
           type="password"

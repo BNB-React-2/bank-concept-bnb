@@ -18,7 +18,8 @@ export default {
   plugins: [require('daisyui')],
   modules: {
     daisyui: {
-      theme: ['light'],
+      themes: true,
+      theme: 'light',
     },
   },
 } satisfies Config;

@@ -1,3 +1,4 @@
+import { ApiProvider } from '@/lib/query-client';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Toaster } from 'sonner';
@@ -16,9 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <body className={inter.className}>
-        {children}
+        <ApiProvider>{children}</ApiProvider>
         <Toaster richColors />
       </body>
     </html>
