@@ -1,6 +1,9 @@
 import React from 'react';
 import { FieldError } from 'react-hook-form';
 
+export const selectStyles =
+  'select select-bordered w-full rounded-full border-primary border-2 text-primary rounded-full placeholder:text-primary';
+
 export const inputStyles =
   'input w-full border-2 border-primary bg-transparent text-primary rounded-full placeholder:text-primary';
 

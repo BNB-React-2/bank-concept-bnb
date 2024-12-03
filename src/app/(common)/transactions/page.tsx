@@ -1,3 +1,5 @@
-export default function TransactionsPage() {
-  return null;
+import { TransactionsPage } from '@/features/transactions/routes/Transactions';
+
+export default function TransactionPage() {
+  return <TransactionsPage />;
 }
