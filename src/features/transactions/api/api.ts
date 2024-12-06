@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axios } from '@/lib/api-client';
 import { TransactionType } from '../types';
 
 export async function getTransactions() {
