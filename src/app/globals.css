@@ -34,3 +34,11 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
 }
+
+input {
+  @apply input w-full border-2 border-primary bg-transparent text-primary rounded-full placeholder:text-primary;
+}
+
+select {
+  @apply select border-primary w-full border-2 text-primary rounded-full placeholder:text-primary;
+}

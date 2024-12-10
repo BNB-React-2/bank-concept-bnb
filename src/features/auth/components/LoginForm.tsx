@@ -1,5 +1,5 @@
 import { Button } from '@/components/elements/Button';
-import { FormItem, inputStyles } from '@/components/forms/FormItem';
+import { FormItem } from '@/components/forms/FormItem';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { loginFormSchema, LoginFormType } from '../types';
@@ -27,15 +27,11 @@ export function LoginForm({ initialValues, onSubmit }: LoginFormProps) {
       className="pt-5 flex flex-col justify-between"
     >
       <FormItem label="Email" error={errors.email}>
-        <input type="email" className={inputStyles} {...register('email')} />
+        <input type="email" {...register('email')} />
       </FormItem>
 
       <FormItem label="Senha" error={errors.password}>
-        <input
-          type="password"
-          className={inputStyles}
-          {...register('password')}
-        />
+        <input type="password" {...register('password')} />
       </FormItem>
 
       <Button className="btn-primary w-full mt-4" type="submit">

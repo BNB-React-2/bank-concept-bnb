@@ -9,7 +9,7 @@ export type TransactionListProps = {
 };
 
 export function TransactionList({ title }: TransactionListProps) {
-  const { data: transactions, isFetching } = useTransactions();
+  const { data: transactions, isFetching, isError } = useTransactions();
   const openUpdateModal = useModalStore.use.openUpdate();
 
   return (
@@ -21,15 +21,25 @@ export function TransactionList({ title }: TransactionListProps) {
             .fill(0)
             .map((_, index) => <TransactionItemSkeleton key={index} />)}
 
-        {transactions?.map((transaction) => (
-          <li
-            className="cursor-pointer"
-            key={`transaction-item-${transaction.id}`}
-            onClick={() => openUpdateModal('updateTransaction', transaction.id)}
-          >
-            <TransactionItem data={transaction} />
-          </li>
-        ))}
+        {!isError && transactions.length === 0 && (
+          <span>Não foram encontradas transações</span>
+        )}
+
+        {isError && <span>Ocorreu um erro ao buscar as transações</span>}
+
+        {!isError &&
+          transactions.length > 0 &&
+          transactions?.map((transaction) => (
+            <li
+              className="cursor-pointer"
+              key={`transaction-item-${transaction.id}`}
+              onClick={() =>
+                openUpdateModal('updateTransaction', transaction.id)
+              }
+            >
+              <TransactionItem data={transaction} />
+            </li>
+          ))}
       </ul>
     </div>
   );

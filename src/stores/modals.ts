@@ -53,7 +53,7 @@ const modalStoreBase = create<ModalStoreType>()((set) => ({
     set((state) => {
       const other = state.modals.filter((m) => m.name !== name);
 
-      return { modals: [...other, { name, open: false }] };
+      return { modals: [...other, { name, open: true }] };
     }),
 }));
 

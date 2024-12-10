@@ -1,3 +1,4 @@
+import { ModalsContainer } from '../elements/Modal/ModalsContainer';
 import { Navigation } from './Navigation';
 
 export function LayoutContainer({ children }: React.PropsWithChildren) {
@@ -7,7 +8,7 @@ export function LayoutContainer({ children }: React.PropsWithChildren) {
       <main className="max-w-[1600px] md:pl-72 w-full min-h-scren mx-auto">
         {children}
       </main>
-      {/* <ModalsContainer /> */}
+      <ModalsContainer />
     </div>
   );
 }
