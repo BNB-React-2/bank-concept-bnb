@@ -1,5 +1,7 @@
 'use client';
 
+import { CreateCategoryModal } from '@/features/categories/components/Modals/CreateCategory';
+import { UpdateCategoryModal } from '@/features/categories/components/Modals/UpdateCategory';
 import { CreateTransactionModal } from '@/features/transactions/components/Modals/CreateTransaction';
 import { UpdateTransactionModal } from '@/features/transactions/components/Modals/UpdateTransaction';
 import { cn } from '@/lib/utils';
@@ -21,6 +23,8 @@ export function ModalsContainer() {
         <div className="flex flex-col items-center justify-center w-full h-full z-50">
           <CreateTransactionModal />
           <UpdateTransactionModal />
+          <CreateCategoryModal />
+          <UpdateCategoryModal />
         </div>
         <div className="absolute top-0 w-screen h-screen bg-black opacity-80 z-40"></div>
       </div>

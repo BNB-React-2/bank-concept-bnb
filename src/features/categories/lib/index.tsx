@@ -55,3 +55,13 @@ export function getCategoryIcon(icon: string) {
       return <IconPlane />;
   }
 }
+
+export function getNextCategoryId(categories: CategoryType[]) {
+  let latestId = 0;
+
+  categories.forEach((category) =>
+    Number(category.id) > latestId ? (latestId = Number(category.id)) : null
+  );
+
+  return String(latestId + 1);
+}

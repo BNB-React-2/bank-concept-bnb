@@ -5,7 +5,7 @@ import { Header } from './Header';
 import { Navbar } from './Navbar';
 
 export function Navigation() {
-  const [opened, setOpened] = useState(true);
+  const [opened, setOpened] = useState(false);
   return (
     <>
       <Header setOpened={setOpened} />

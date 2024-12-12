@@ -1,5 +1,5 @@
-import { Button } from '@/components/elements/Button';
 import { FormItem } from '@/components/forms/FormItem';
+import { FormLayout } from '@/components/forms/FormLayout';
 import { useCategories } from '@/features/categories/api/handlers';
 import { DefaultFormProps } from '@/types/form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,6 +12,7 @@ import { DEFAULT_TRANSACTION_FORM_VALUES, PAYMENT_METHODS } from '../values';
 export type DefaulTransactionFormProps = DefaultFormProps<TransactionFormType>;
 
 export function DefaulTransactionForm({
+  loading,
   initialValues,
   onSubmit,
 }: DefaulTransactionFormProps) {
@@ -28,9 +29,9 @@ export function DefaulTransactionForm({
       : DEFAULT_TRANSACTION_FORM_VALUES,
   });
   return (
-    <form
+    <FormLayout
+      loading={loading}
       onSubmit={handleSubmit((values) => onSubmit && onSubmit(values))}
-      className="pt-5 flex flex-col justify-between h-full"
     >
       <FormItem label="Nome" error={errors.name}>
         <input type="text" {...register('name')} />
@@ -87,10 +88,6 @@ export function DefaulTransactionForm({
           )}
         ></Controller>
       </FormItem>
-
-      <Button className="btn-primary w-full" type="submit">
-        Salvar
-      </Button>
-    </form>
+    </FormLayout>
   );
 }

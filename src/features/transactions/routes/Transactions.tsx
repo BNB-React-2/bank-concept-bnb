@@ -9,8 +9,6 @@ import { TransactionList } from '../components/List';
 export function TransactionsPage() {
   const { data: transactions } = useTransactions();
 
-  console.log(transactions);
-
   const totalExpenses = transactions
     ? transactions.reduce((acc, transaction) => transaction.value + acc, 0)
     : 0;

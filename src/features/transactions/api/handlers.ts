@@ -11,11 +11,7 @@ import {
 export function useTransactions() {
   return useQuery<TransactionType[]>({
     queryKey: ['transactions'],
-    queryFn: () =>
-      getTransactions().then((res) => {
-        console.log(res);
-        return res.data;
-      }),
+    queryFn: () => getTransactions().then((res) => res.data),
     initialData: [],
   });
 }
